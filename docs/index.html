@@ -1,0 +1,149 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>
+CVNet - the Color and Vision Network
+</title>
+<!-- body text="#000B70" vlink="#551A8B" link="#000066" bgcolor="#FFD12D" alink="#FF0000" -->
+<style>
+body {font-family: Arial;}
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #ffd12d;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddc11d;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ffe19d;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+</style>
+
+</head>
+
+<!-- <body text="#000B70" vlink="#551A8B" link="#000066" bgcolor="#FFFFFF" background="hvei_home_files/background.html" alink="#FF0000"> -->
+
+<!--iframe src="hvei_top.html" style="border:none;" width="100%" height="35%"></iframe -->
+<!-- TOP OF PAGE - BEGIN -->
+
+<table>
+<tbody>
+<tr>
+<td>
+<h1 align="center"><font color="#000000">CVNet - the Color and Vision Network</font></h1>
+	<h2 align="center"><font color="#000000">Tools for collaboration in vision science
+	</font></h2>
+
+<!--
+	<br>
+	<h3 align="center">
+	<br>
+	<br>
+	</h3>
+	-->
+</td>
+
+</tr>
+</tbody>
+</table>
+
+<!-- TOP OF PAGE - END -->
+
+<!-- 
+<iframe src="hvei_tabs.html" style="border:none;" width="100%" height="10%"></iframe>
+-->
+<!-- Tab links -->
+<div class="tab">
+  <button class="tablinks" onclick="openTabContent(event, 'Overview')" id="defaultOpen">Overview</button>
+  <button class="tablinks" onclick="openTabContent(event, 'Mailman')">The Mailing List</button>
+  <button class="tablinks" onclick="openTabContent(event, 'History')">History</button>
+  <button class="tablinks" onclick="openTabContent(event, 'Team')">Team</button>
+</div>
+
+<!-- Tab content -->
+<div id="Overview" class="tabcontent">
+<!-- HOME CONTENT BEGIN -->
+
+<p align="left">
+(put some blather about CVnet here)
+<!-- HOME CONTENT END -->
+</div>
+
+<div id="Mailman" class="tabcontent">
+  <h3>How to subscribe to CVNet</h3>
+  (provide some instructions here and a link to the mailman page)
+</div>
+
+<div id="History" class="tabcontent">
+  <h3>History</h3>
+  (Provide some information here about the history of CVnet and a link to a tribute page to Hoover)
+</div>
+
+<div id="Team" class="tabcontent">
+  <h3>Team</h3>
+  (Provide information here about the current team)
+</div>
+
+<script>
+function openTabContent(evt, cityName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+
+</script>
+
+<p>
+<script type="text/javascript">
+
+<!--
+var m = "Last updated " + document.lastModified;
+document.write(m);
+ -->
+ </script>
+</p>
+
+</body></html>
