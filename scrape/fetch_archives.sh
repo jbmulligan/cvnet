@@ -10,5 +10,5 @@
 
 curl	-b cookies.txt					\
 	http://nephoscale.ewind.com/mailman/private/cvnet/2025-May.txt.gz \
-	> archive_data/2025-May.txt 2> curlerrs
+	> archive_data/2025-May.txt 2>> curlerrs
 
