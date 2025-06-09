@@ -80,10 +80,10 @@ body {font-family: Arial;}
 -->
 <!-- Tab links -->
 <div class="tab">
-  <button class="tablinks" onclick="openTabContent(event, 'overviewTab')">Overview</button>
-  <button class="tablinks" onclick="openTabContent(event, 'mailmanTab')">The Mailing List</button>
-  <button class="tablinks" onclick="openTabContent(event, 'historyTab')">History</button>
-  <button class="tablinks" onclick="openTabContent(event, 'teamTab')">Team</button>
+  <button class="tablinks" onclick="openTabContent(event, 'overviewTab')" id="overviewTabBtn">Overview</button>
+  <button class="tablinks" onclick="openTabContent(event, 'mailmanTab')" id="mailmanTabBtn">The Mailing List</button>
+  <button class="tablinks" onclick="openTabContent(event, 'historyTab')" id="historyTabBtn">History</button>
+  <button class="tablinks" onclick="openTabContent(event, 'teamTab')" id="teamTabBtn">Team</button>
 </div>
 
 <!-- Tab content -->
@@ -201,7 +201,7 @@ and reminiscences from friends and colleagues.
 
 function querySpecifiesTab(){
 	const queryString = window.location.search.substring(1);
-	console.log("queryString: "+queryString);
+	if( ! queryString ){ return false; }
 	const obj = JSON.parse(
 		'{"'
 		+ queryString.replace(/&/g, '","')
@@ -211,12 +211,11 @@ function querySpecifiesTab(){
 			return key===""?value:decodeURIComponent(value)
 		}
 	);
-	console.log("obj: "+JSON.stringify(obj));
 
 	const t = obj.tab;
 	if( t ){
-		console.log("requested tab: "+t);
-		const elt = document.getElementById(t);
+		const b = t + "Btn";
+		const elt = document.getElementById(b);
 		if( elt ){
 			elt.click();
 			return true;
@@ -244,12 +243,12 @@ function openTabContent(evt, tabCode) {
 		tablinks[i].className = tablinks[i].className.replace(" active", "");
 	}
 
-	// Show the current tab, and add an "active" class to the button that opened the tab
+	// Show the current tab, and add an "active" class
+	// to the button that opened the tab
 	document.getElementById(tabCode).style.display = "block";
 	evt.currentTarget.className += " active";
 
-	    const url = new URL(window.location.href);
-console.log("url = "+JSON.stringify(url));
+	const url = new URL(window.location.href);
 	const params = url.searchParams;
 	params.set('tab',tabCode);
 	window.history.pushState({}, '', url);
